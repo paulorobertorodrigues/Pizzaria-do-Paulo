@@ -23,6 +23,28 @@
         //criação do pedido
     } else if ($method === "POST") {
 
+        $data = $_POST;
+
+        $borda = $data["borda"];
+        $massa = $data["massa"];
+        $sabores = $data["sabores"];
+
+        // validação de sabores máximos
+        if(count($sabores)> 3) {
+
+            $_SESSION["msg"]= "Selecione no máximo 3 sabores!";
+            $_SESSION["status"] = "warning";
+
+        } else {
+
+            echo "passou da validação";
+            exit;
+
+        }
+        //Retorna para pagina inicial
+    header("Location:..");
+
+
     }
 
 ?>
